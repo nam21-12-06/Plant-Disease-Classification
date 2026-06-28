@@ -1,0 +1,12 @@
+{
+    "model_name": "Baseline CNN",
+    "params": 466918,
+    "best_epoch": 19,
+    "train_accuracy": 0.9973682165145874,
+    "val_accuracy": 0.997837483882904,
+    "train_loss": 0.009055658243596554,
+    "val_loss": 0.007472476921975613,
+    "precision_macro": 0.9978360524303809,
+    "recall_macro": 0.9977722556570054,
+    "f1_macro": 0.9978011148904414
+}

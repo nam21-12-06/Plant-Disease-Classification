@@ -1,0 +1,15 @@
+# Môi trường ảo
+.venv/
+
+# Dữ liệu
+data/
+dataset/
+
+# Models
+models/
+
+# File rác hệ thống
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
