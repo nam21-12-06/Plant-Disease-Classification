@@ -1,0 +1,12 @@
+{
+    "model_name": "MobileNetV2",
+    "params": 2596710,
+    "best_epoch": 23,
+    "train_accuracy": 0.9993314146995544,
+    "val_accuracy": 0.9960163831710815,
+    "train_loss": 0.00242303847335279,
+    "val_loss": 0.015476967208087444,
+    "precision_macro": 0.9958333473529698,
+    "recall_macro": 0.9958315924077823,
+    "f1_macro": 0.9958229346683667
+}

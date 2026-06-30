@@ -1,15 +1,25 @@
-# Môi trường ảo
+# Virtual environment
 .venv/
 
-# Dữ liệu
-data/
+# Dataset (ignore everything except test images — small and useful for demo)
+data/*
+!data/test_images/
+!data/test_images/**
 dataset/
 
-# Models
+# Trained models (hosted via GitHub Releases instead)
 models/
 
-# File rác hệ thống
+# Python cache
 __pycache__/
 *.pyc
+
+# Jupyter
 .ipynb_checkpoints/
+
+# OS junk
 .DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml

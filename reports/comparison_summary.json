@@ -1,0 +1,26 @@
+[
+    {
+        "model_name":"Baseline CNN",
+        "params":466918,
+        "best_epoch":19,
+        "train_accuracy":0.9973682165,
+        "val_accuracy":0.9978374839,
+        "train_loss":0.0090556582,
+        "val_loss":0.0074724769,
+        "precision_macro":0.9978360524,
+        "recall_macro":0.9977722557,
+        "f1_macro":0.9978011149
+    },
+    {
+        "model_name":"MobileNetV2",
+        "params":2596710,
+        "best_epoch":23,
+        "train_accuracy":0.9993314147,
+        "val_accuracy":0.9960163832,
+        "train_loss":0.0024230385,
+        "val_loss":0.0154769672,
+        "precision_macro":0.9958333474,
+        "recall_macro":0.9958315924,
+        "f1_macro":0.9958229347
+    }
+]

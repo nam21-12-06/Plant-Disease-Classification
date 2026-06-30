@@ -1,0 +1,10 @@
+
+Pillow
+streamlit
+tensorflow>=2.13
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+opencv-python
