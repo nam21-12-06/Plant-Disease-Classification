@@ -67,11 +67,12 @@ plant-disease-classification/
 │   ├── styles.py                 # Shared CSS / design system
 │   ├── predictor.py              # Model loading + inference (auto-downloads weights)
 │   ├── class_names.py
-│   ├── .streamlit/
-│   │   └── config.toml
 │   └── pages/
 │       ├── 1_About.py            # Dataset, methodology, Grad-CAM discussion
 │       └── 2_Demo.py             # Upload + predict + Grad-CAM
+│
+├── .streamlit/
+│   └── config.toml               # Streamlit theme config
 │
 ├── notebooks/
 │   ├── plant_disease.ipynb       # Full training pipeline (run on Kaggle, T4 GPU)

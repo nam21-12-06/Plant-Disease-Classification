@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 from PIL import Image
 
+from config import MODEL_PATHS
 from gradcam import prepare_image, generate_gradcam, overlay_heatmap
 
 
@@ -25,12 +26,6 @@ from gradcam import prepare_image, generate_gradcam, overlay_heatmap
 
 TEST_IMAGES_DIR = "data/test_images"
 OUTPUT_DIR = "figures/gradcam_comparison"
-
-MODEL_PATHS = {
-    "baseline" : "models/baseline_cnn.keras",
-    "mobilenet": "models/mobilenetv2.keras",
-}
-
 
 # ─────────────────────────────────────────────
 # Load models once

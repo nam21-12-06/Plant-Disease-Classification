@@ -1,43 +1,39 @@
-import os
 import urllib.request
+from pathlib import Path
 
 import numpy as np
 import tensorflow as tf
 import streamlit as st
 
-IMG_SIZE = (256, 256)
+from src.config import MODEL_PATHS, MODEL_URLS, preprocess_pil_image
 
-MODEL_URLS = {
-    "models/baseline_cnn.keras": "https://github.com/nam21-12-06/Plant-Disease-Classification/releases/download/v1.0/baseline_cnn.keras",
-    "models/mobilenetv2.keras"  : "https://github.com/nam21-12-06/Plant-Disease-Classification/releases/download/v1.0/mobilenetv2.keras",
-}
+def _ensure_model_downloaded(model_name: str) -> Path:
+    model_path = MODEL_PATHS.get(model_name)
+    if model_path is None:
+        raise ValueError(f"Unknown model: '{model_name}'. Choose from: {list(MODEL_PATHS.keys())}")
 
-def _ensure_model_downloaded(model_path: str) -> str:
-    if os.path.exists(model_path):
+    if model_path.exists():
         return model_path
 
-    url = MODEL_URLS.get(model_path)
+    url = MODEL_URLS.get(model_name)
     if url is None:
-        raise FileNotFoundError(f"No download URL configured for {model_path}")
+        raise FileNotFoundError(f"No download URL configured for {model_name}")
 
-    os.makedirs(os.path.dirname(model_path), exist_ok=True)
-    with st.spinner(f"Downloading model weights ({os.path.basename(model_path)})..."):
+    model_path.parent.mkdir(parents=True, exist_ok=True)
+    with st.spinner(f"Downloading model weights ({model_path.name})..."):
         urllib.request.urlretrieve(url, model_path)
 
     return model_path
 
 
 @st.cache_resource(show_spinner=False)
-def load_selected_model(model_path: str):
-    model_path = _ensure_model_downloaded(model_path)
+def load_selected_model(model_name: str):
+    model_path = _ensure_model_downloaded(model_name)
     return tf.keras.models.load_model(model_path)
+
+
 def predict_image(model, image):
-    
-    image = image.resize(IMG_SIZE)
-
-    img_array = tf.keras.preprocessing.image.img_to_array(image)
-    img_array = np.expand_dims(img_array, axis=0)
-
+    img_array = preprocess_pil_image(image)
     preds = model.predict(img_array, verbose=0)
 
     probs = preds[0]
