@@ -10,7 +10,7 @@ from PIL import Image
 
 from styles import inject_css, field_label, field_divider
 from predictor import load_selected_model, predict_image
-from class_names import CLASS_NAMES
+from src.config import CLASS_NAMES
 from gradcam import prepare_image, generate_gradcam, overlay_heatmap
 
 
@@ -65,14 +65,9 @@ st.sidebar.markdown(
     unsafe_allow_html=True,
 )
 
-model_path = (
-    "models/baseline_cnn.keras"
-    if model_option == "Baseline CNN"
-    else "models/mobilenetv2.keras"
-)
 model_type = "baseline" if model_option == "Baseline CNN" else "mobilenet"
 
-model = load_selected_model(model_path)
+model = load_selected_model(model_type)
 
 field_divider()
 

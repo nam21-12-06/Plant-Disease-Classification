@@ -8,6 +8,8 @@ import cv2
 import tensorflow as tf
 from PIL import Image
 
+from config import IMG_SIZE
+
 
 # ─────────────────────────────────────────────
 # Config — last conv layer per model
@@ -23,7 +25,7 @@ LAST_CONV_LAYER = {
 # Preprocessing
 # ─────────────────────────────────────────────
 
-def prepare_image(image: Image.Image, img_size: tuple = (256, 256)) -> tuple:
+def prepare_image(image: Image.Image, img_size: tuple = IMG_SIZE) -> tuple:
     image = image.convert("RGB").resize(img_size)
     original_rgb = np.array(image, dtype=np.uint8)
     img_array = np.expand_dims(original_rgb.astype(np.float32), axis=0)
